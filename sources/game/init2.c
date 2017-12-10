@@ -24,22 +24,18 @@ void	init_list_text(list_text_t *list_text)
 	sfText_setFont(list_text[0].score_displayed, list_text[0].font);
 	sfText_setCharacterSize(list_text[0].score_displayed, 32);
 	sfText_setCharacterSize(list_text[0].timer_displayed, 32);
-	sfText_setPosition(list_text[0].score_displayed, list_text[0].score_pos);
-	sfText_setPosition(list_text[0].timer_displayed, list_text[0].timer_pos);
+}
+
+void	init_list_text2(list_text_t *list_text)
+{
+	sfText_setPosition(list_text[0].score_displayed,
+	list_text[0].score_pos);
+	sfText_setPosition(list_text[0].timer_displayed,
+	list_text[0].timer_pos);
 	sfText_setColor(list_text[0].timer_displayed, sfCyan);
 	sfText_setColor(list_text[0].score_displayed, sfCyan);
 	my_getcharstar(list_text[0].score, list_text[0].score_str);
 	my_getcharstar(list_text[0].timer, list_text[0].timer_str);
 	sfText_setString(list_text[0].score_displayed, list_text[0].score_str);
 	sfText_setString(list_text[0].timer_displayed, list_text[0].timer_str);
-}
-
-void 	display_text(list_text_t *list_text, sfRenderWindow *window)
-{
-	my_getcharstar(list_text[0].score, list_text[0].score_str);
-	my_getcharstar(list_text[0].timer, list_text[0].timer_str);
-	sfText_setString(list_text[0].score_displayed, list_text[0].score_str);
-	sfText_setString(list_text[0].timer_displayed, list_text[0].timer_str);
-	sfRenderWindow_drawText(window, list_text[0].score_displayed, NULL);
-	sfRenderWindow_drawText(window, list_text[0].timer_displayed, NULL);
 }

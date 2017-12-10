@@ -11,20 +11,22 @@ CFLAGS		=	-Wextra -W -Wall -Wparentheses -Wsign-compare -Wpointer-sign -Wuniniti
 
 CFLAGS		=	-I ./include
 
-GRAPHFLAGS	=	-lc_graph_prog #-lcsfml-window -lcsfml-system -lcsfml-graphics
+LDFLAGS		=	-lc_graph_prog
 
 RM		=	rm -f
 
 SRCS 		=	main.c	\
-			sources/game.c	\
-			sources/lib.c	\
-			sources/animation.c 	\
-			sources/display.c 	\
-			sources/events.c 	\
-			sources/init.c 	\
-			sources/position.c 	\
+			sources/game/game.c	\
+			sources/game/lib.c	\
+			sources/game/animation.c 	\
+			sources/game/display.c 	\
+			sources/game/events.c 	\
+			sources/game/init.c 	\
+			sources/game/position.c 	\
 			sources/window.c 	\
-			sources/text.c 	\
+			sources/game/init2.c 	\
+			sources/main_menu/main_menu.c 	\
+			sources/end_menu/end_menu.c 	\
 
 OBJS 		=	$(SRCS:.c=.o)
 
@@ -33,7 +35,7 @@ NAME 		=	my_hunter 	\
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) -o $(NAME) $(OBJS) $(CFLAGS) $(GRAPHFLAGS)
+	@$(CC) -o $(NAME) $(OBJS) $(LDFLAGS)
 
 clean:
 	@$(RM) $(OBJS)

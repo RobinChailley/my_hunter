@@ -24,10 +24,10 @@ int my_getnbr(char const *str)
 		res = res * sign;
 		return (res);
 	}
-        return 0;
+	return 0;
 }
 
-int 	my_strlen(char *str)
+int	my_strlen(char *str)
 {
 	int i = 0;
 	while (str[i] != '\0')
@@ -35,16 +35,16 @@ int 	my_strlen(char *str)
 	return (i);
 }
 
-void 	reverse_str(char *str)
+void	reverse_str(char *str)
 {
-     	int i = 0;
-     	int j = 0;
-     	char c;
- 
-     	for (i = 0, j = my_strlen(str)-1; i<j; i++, j--) {
-        	c = str[i];
-         	str[i] = str[j];
-         	str[j] = c;
+	int i = 0;
+	int j = 0;
+	char c;
+
+	for (i = 0, j = my_strlen(str)-1; i<j; i++, j--) {
+		c = str[i];
+		str[i] = str[j];
+		str[j] = c;
 	}
 }
 
@@ -52,12 +52,12 @@ void 	my_getcharstar(int nb, char *str)
 {
 	int i = 0;
 	int sign = nb;
+
 	if (sign < 0)
 		nb = -nb;
 	do {
 		str[i++] = nb % 10 + '0';
 	} while ((nb /= 10) > 0);
-	
 	if (sign < 0)
 		str[i++] = '-';
 	str[i] = '\0';
