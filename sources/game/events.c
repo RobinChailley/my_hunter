@@ -14,9 +14,8 @@ void	gestion_event(sfRenderWindow *window, sfEvent event, mob_t *list_mob,
 	int compteur = 0;
 	while (sfRenderWindow_pollEvent(window, &event)) {
 		if (event.type == sfEvtClosed) {
-			sfRenderWindow_close(window);
 			list_text->score = -20;
-
+			sfRenderWindow_close(window);
 		}
 		if (event.type == sfEvtMouseButtonPressed) {
 			for (i = 0 ; i < size ; i++) {
@@ -47,6 +46,11 @@ void	event_gestion_me(sfRenderWindow *window, sfEvent event,
 	int *loop, int *return_value)
 {
 	while (sfRenderWindow_pollEvent(window, &event)) {
+		if (event.type == sfEvtClosed) {
+			*loop = 0;
+			*return_value = 20;
+			sfRenderWindow_close(window);
+		}
 		if (event.type == sfEvtMouseButtonPressed) {
 			if (event.mouseButton.x > 614
 			&& event.mouseButton.x < 763
@@ -77,6 +81,10 @@ void	gestion_event_mm(sfRenderWindow *window, sfEvent event,
 			if (event.mouseButton.x > 653  && event.mouseButton.x < 1273 &&
 			event.mouseButton.y > 560 && event.mouseButton.y < 784)
 				*main_menu = 20;
+		}
+		else if (event.type == sfEvtClosed) {
+			*main_menu = -20;
+			sfRenderWindow_close(window);
 		}
 		sfVector2f position_cursor = get_mouse_position_mm(window);
 		if (position_cursor.x > 639  && position_cursor.x < 1268 &&

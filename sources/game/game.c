@@ -81,6 +81,8 @@ int	game(sfRenderWindow *window)
 		time = sfClock_getElapsedTime(clock);
 		seconds = time.microseconds / 1000000.0;
 		gestion_event(window, event, list_mob, size, list_text);
+		if (list_text[0].score == -20)
+			return (-20);
 		if (seconds > 0.5 ) {
 			random_pos = rand_a_b_vector(random_pos, 190, 1700, 190, 600);
 			random_move = rand_a_b_vector(random_move, -3, 3, -3, 3);
@@ -93,7 +95,7 @@ int	game(sfRenderWindow *window)
 		}
 		position_treatment(list_mob, size, rect);
 		display_all(window, list_other_sprite, list_mob, list_text, position_cursor, cursor_sprite, size);
-		if (list_text[0].timer < 0) {
+		if (list_text[0].timer < 29) {
 			free(list_mob);
 			free(list_other_sprite);
 			free(list_text);
