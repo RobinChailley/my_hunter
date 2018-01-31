@@ -11,7 +11,7 @@ CFLAGS		=	-Wextra -W -Wall -Wparentheses -Wsign-compare -Wpointer-sign -Wuniniti
 
 CFLAGS		=	-I ./include
 
-LDFLAGS		=	-lc_graph_prog
+LDFLAGS		=	-lcsfml-window -lcsfml-system -lcsfml-graphics
 
 RM		=	rm -f
 

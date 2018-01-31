@@ -95,10 +95,10 @@ int	game(sfRenderWindow *window)
 		}
 		position_treatment(list_mob, size, rect);
 		display_all(window, list_other_sprite, list_mob, list_text, position_cursor, cursor_sprite, size);
-		if (list_text[0].timer < 29) {
+		if (list_text[0].timer < 0) {
 			free(list_mob);
 			free(list_other_sprite);
-			free(list_text);
+			//free(list_text);
 			return (list_text[0].score);
 		}
 	}
